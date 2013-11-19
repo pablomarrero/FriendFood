@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   belongs_to :person
   private
   def set_rolify_role
-    self.add_role :admin
+    self.add_role :normal
   end
 
 end
