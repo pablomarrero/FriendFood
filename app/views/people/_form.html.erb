@@ -1,44 +1,66 @@
-<%= form_for @person, :html => { :class => 'form-horizontal' } do |f| %>
-  <div class="control-group">
-    <%= f.label :avatar, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.file_field :avatar %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :first_name, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :first_name, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :last_name, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :last_name, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :birth_date, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :birth_date, :class => 'text_field' %>
-    </div>
-  </div>
-
-  <div class="control-group">
-    <fieldset class="friends">
-      <legend> <%= "#{t('.friends_of')} #{@person.first_name} #{@person.last_name}"%> </legend>
-      <%= f.fields_for :friends do |friend| %>
-        <%= render 'friend_fields', :f => friend %>
-      <% end %>
-      <div class="links">
-        <%= link_to_add_association t('.add_friend'), f, :friends, :class => 'btn',
-              :wrap_object => Proc.new {|friend| friend.build_friend; friend }%>
+<%= form_for @person, :html => { :multipart => true, :class => 'form-horizontal' } do |f| %>
+  <%= render "shared/error_messages", :target => @person %>
+  <div class="row-fluid well">
+    <div class="span3 control-group">
+      <%= f.label t('.avatar'), :class => 'control-label' %>
+      <div class="controls">
+        <%= f.file_field :avatar %>
       </div>
-    </fieldset>
+    </div>
+    <div class="span9 row-fluid">
+      <div class="row-fluid">
+        <div class="span4 control-group">
+          <%= f.label t('.first_name'), :class => 'control-label' %>
+          <div class="controls">
+            <%= f.text_field :first_name, :class => 'text_field' %>
+          </div>
+        </div>
+      </div>
+      <div class="row-fluid">
+        <div class="span4 control-group">
+          <%= f.label t('.last_name'), :class => 'control-label' %>
+          <div class="controls">
+            <%= f.text_field :last_name, :class => 'text_field' %>
+          </div>
+        </div>
+      </div>
+      <div class="row-fluid">
+        <div class="span4 control-group">
+          <%= f.label t('.nick_name'), :class => 'control-label' %>
+          <div class="controls">
+            <%= f.text_field :nick_name, :class => 'text_field' %>
+          </div>
+        </div>
+      </div>
+      <div class="row-fluid">
+        <div class="span12 control-group">
+          <%= f.label t('.comment'), :class => 'control-label' %>
+          <div class="controls">
+            <%= f.text_area :comment, :class => 'text_area' %>
+          </div>
+        </div>
+      </div>
+      <div class="row-fluid">
+        <div class="span12 control-group">
+          <%= f.label t('.good'), :class => 'control-label' %>
+          <div class="controls">
+            <%= f.text_area :good, :class => 'text_area' %>
+          </div>
+        </div>
+      </div>
+      <div class="row-fluid">
+        <div class="span12 control-group">
+          <%= f.label t('.bad'), :class => 'control-label' %>
+          <div class="controls">
+            <%= f.text_area :bad, :class => 'text_area' %>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
   <div class="form-actions">
-    <%= f.submit nil, :class => 'btn btn-primary' %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+    <%= f.submit t('save'), :class => 'btn btn-primary' %>
+    <%= link_to t('cancel', :default => t("helpers.links.cancel")),
                 people_path, :class => 'btn' %>
   </div>
 <% end %>

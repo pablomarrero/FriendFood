@@ -7,9 +7,10 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   after_create :set_rolify_role
 
-   private
-   def set_rolify_role
-      self.add_role :admin
-   end
+  belongs_to :person
+  private
+  def set_rolify_role
+    self.add_role :admin
+  end
 
 end

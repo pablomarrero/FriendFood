@@ -1,0 +1,11 @@
+<% if target.errors.any? %>  
+  <div class="alert alert-error">  
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <h2><%= t('found_errors')%></h2>  
+    <ul>  
+      <% target.errors.each do |attr, msg| %>  
+        <li><strong><%= t("#{target.class.name.downcase}.#{attr}")%></strong><%= ": " + msg %></li>  
+      <% end %>  
+    </ul>  
+  </div>  
+<% end %>  

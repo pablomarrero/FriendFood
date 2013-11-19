@@ -11,28 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131009123212) do
-
-  create_table "friends", force: true do |t|
-    t.integer  "person_id"
-    t.integer  "friend_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "friends", ["friend_id"], name: "index_friends_on_friend_id", using: :btree
-  add_index "friends", ["person_id"], name: "index_friends_on_person_id", using: :btree
+ActiveRecord::Schema.define(version: 20131118204350) do
 
   create_table "people", force: true do |t|
     t.string   "first_name"
     t.string   "last_name"
-    t.date     "birth_date"
+    t.string   "nick_name"
+    t.text     "comment"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.text     "good"
+    t.text     "bad"
   end
 
   create_table "roles", force: true do |t|
@@ -59,9 +52,11 @@ ActiveRecord::Schema.define(version: 20131009123212) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "person_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["person_id"], name: "index_users_on_person_id", using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "users_roles", id: false, force: true do |t|

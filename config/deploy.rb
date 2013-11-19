@@ -6,12 +6,12 @@ require "rvm/capistrano"
 set :stages, %w[production]
 set :default_stage, 'production'
 
-set :application, 'basic_ruby_skeleton'
+set :application, 'friend_food'
 set :server_to_deploy, '192.241.148.42'
 set :user, 'pmarrero'
 #set :password, 'deploy'
 #git@github.com:aquait/basic_ruby_skeleton.git
-set :repository, "git@github.com:aquait/basic_ruby_skeleton.git"
+set :repository, "git@github.com:pablo.marrero/FriendFood.git"
 set :deploy_to, "/srv/www/#{application}"
 
 set :rvm_ruby_string, '2.0.0' 
@@ -64,7 +64,7 @@ namespace :foreman do
 
   desc "Stop the application services"
   task :stop, :roles => :app do
-    run "if test '$(ps -C ruby -F | grep '/puma' | awk {'print $2'})'; then kill -9 '$(ps -C ruby -F | grep '/puma' | awk {'print $2'})'; fi"
+    run "if test $(ps -C ruby -F | grep '/pumaFriendFood' | awk {'print $2'}); then kill -9 $(ps -C ruby -F | grep '/pumaPersonal' | awk {'print $2'}); fi"
     #run "(kill -9 $(ps -C ruby -F | grep '/puma' | awk {'print $2'}))"
   end
 end

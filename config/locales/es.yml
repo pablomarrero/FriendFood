@@ -1,0 +1,52 @@
+es:
+  new: Nuevo
+  logout: "Logout"
+  login: Login
+  signin: "Login"
+  update: Modificar
+  save: Guardar
+  search_form: Busqueda
+  cancel: Cancelar
+  actions: Acciones
+  back: Volver
+  edit: Modificar
+  remove: Eliminar
+  destroy: Eliminar
+  confirm: Esta seguro?
+  found_errors: Se han encontrado errores que debe corregir.
+  search_form: Búsqueda
+  search: Buscar
+  print: Imprimir
+  response: Responder
+  send: Enviar
+
+  people_link: Cocineros
+  people:
+    show:
+      title: Detalle de Cocinero
+      avatar: Foto
+      first_name: Nombre
+      last_name: Apellido
+      nick_name: Apodo
+      comment: Comentarios
+      good: Me Gusta
+      bad: No Me Gusta
+    edit:
+      title: Modificar Cocinero
+    new:
+      title: Nuevo Cocinero
+    form:
+      avatar: Foto
+      first_name: Nombre
+      last_name: Apellido
+      nick_name: Apodo
+      comment: Comentarios
+      bad: No Me Gusta
+      good: Me Gusta
+    index:
+      title: Listado de Cocineros
+      avatar: Foto
+      name: Nombre
+      nick_name: Apodo
+      comment: Comentarios
+    

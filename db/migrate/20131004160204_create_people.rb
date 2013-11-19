@@ -3,8 +3,8 @@ class CreatePeople < ActiveRecord::Migration
     create_table :people do |t|
       t.string :first_name
       t.string :last_name
-      t.date :birth_date
-
+      t.string :nick_name
+      t.text   :comment
       t.timestamps
     end
   end
